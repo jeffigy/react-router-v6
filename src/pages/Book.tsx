@@ -1,8 +1,10 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 
 // type HomeProps = {};
 
 const Book = () => {
-  return <div>book page</div>;
+  const { id } = useParams();
+  return <div>book {id} page</div>;
 };
 export default Book;
