@@ -1,5 +1,5 @@
 import "./App.css";
-import { Link, Route, Routes } from "react-router-dom";
+import { Link, NavLink, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import BookList from "./pages/BookList";
 import Book from "./pages/Book";
@@ -15,16 +15,34 @@ function App() {
         {" "}
         <ul>
           <li>
-            <Link to="/" >Home</Link>
+            <NavLink
+              style={({ isActive }) => {
+                return {
+                  color: isActive ? "red" : "blue",
+                };
+              }}
+              to="/"
+            >
+              Home
+            </NavLink>
           </li>
         </ul>
         <ul>
           <li>
-            <Link to="/books">Books</Link>
+            <NavLink
+              style={({ isActive }) => {
+                return {
+                  color: isActive ? "red" : "blue",
+                };
+              }}
+              to="/books"
+            >
+              Books
+            </NavLink>
           </li>
         </ul>
+        <br />
       </nav>
-
       <Routes>
         <Route path="/" element={<Home />} />
 
