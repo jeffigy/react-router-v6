@@ -1,17 +1,25 @@
 
-import { useOutletContext } from "react-router-dom";
+import { useState } from "react";
+import { Link, useOutletContext, useSearchParams } from "react-router-dom";
 
 // type HomeProps = {};
 
 const BookList = () => {
+  const [searhParam, setSearchParams] = useSearchParams(
+    new URLSearchParams()
+  );
+  const number = searhParam.get("n") || 3
+
+  // const [number, setNumber] = useState(3)
   const obj: any = useOutletContext()
   return <>
     <div>book list page</div>
     <div>{obj.outletValue}</div>
-    {/* <Link to={'/books/1'}>Book 1</Link>
-    <Link to={'/books/2'}>Book 2</Link>
+    <input type="number" value={number} onChange={(e: any) => setSearchParams({ n: e.target.value })} />
     <br />
-    <Link to={'/books/new'}>New Book</Link> */}
+    <br />
+    <br />
+    <Link to={`/books/${number}`}>Book {number}</Link>
   </>
 };
 export default BookList;
