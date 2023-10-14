@@ -1,5 +1,4 @@
 
-import { useState } from "react";
 import { Link, useOutletContext, useSearchParams } from "react-router-dom";
 
 // type HomeProps = {};

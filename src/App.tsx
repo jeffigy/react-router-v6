@@ -1,5 +1,5 @@
 import "./App.css";
-import { NavLink, Route, Routes } from "react-router-dom";
+import { NavLink, Route, Routes, useLocation } from "react-router-dom";
 import Home from "./pages/Home";
 import BookList from "./pages/BookList";
 import Book from "./pages/Book";
@@ -8,8 +8,10 @@ import NotFound from "./pages/NotFound";
 import BookLayout from "./components/BookLayout";
 
 function App() {
+  const location = useLocation();
   return (
     <>
+      {location.state && <div>{location.state}</div>}
       {" "}
       <nav>
         {" "}
@@ -22,6 +24,7 @@ function App() {
                 };
               }}
               to="/"
+              state={'hello this is home'}
             >
               Home
             </NavLink>

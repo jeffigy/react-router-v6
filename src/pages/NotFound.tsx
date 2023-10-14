@@ -9,7 +9,7 @@ const NotFound = () => {
   useEffect(() => {
     setTimeout(() => {
       // navigate("/"); // go to the home page
-      navigate(-1); // go back to the previous page
+      navigate('/', { state: 'accessed an unknown page' }); // go back to the previous page
     }, 3000);
   }, []);
 
